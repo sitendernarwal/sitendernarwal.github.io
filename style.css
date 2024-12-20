@@ -1,0 +1,621 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background: url(./images/bg1.jpg) no-repeat center center/cover;
+    background-attachment: fixed;
+}
+
+#header {
+    /* background: linear-gradient(45deg, #ff6f61, #ff7b00); */
+    padding: 40px 0;
+    text-align: center;
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+.header-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+#dynamic-heading {
+    color: #fff;
+    font-size: 30px;
+    display: inline-block;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 3s ease-in-out 1s forwards; /* Animation to reveal dynamic heading */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffeb3b;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #ffeb3b;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+nav ul li a:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Keyframe for fadeIn animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.full-page-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 0 20px;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Left Side (Image) */
+.left {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0%;
+    margin-left: 0px;
+    padding-right: 10px; /* Creates gap between image and text */
+}
+
+.left img {
+    /* margin-right: 80%; */
+    width: 100%;
+    max-width: 550px; /* Adjust max-width for image */
+    height: auto;
+    object-fit: cover; /* Ensures image maintains aspect ratio */
+    /* box-shadow: 5px 5px 5px rgba(0,0,0,0.4); */
+    filter: drop-shadow(20px 20px 25px rgba(255, 255, 255, 0.5));
+}
+
+/* Right Side (Text) */
+.right {
+    /* margin-left: 400px; */
+    width: 55%;
+    padding: 20px;
+    margin-right: 0;
+    justify-content: center;
+    margin-left: 40%; /* Adds gap between image and text */
+    align-items: flex-start;
+}
+
+.right h2 {
+    font-size: 3rem;
+    color: #20040496;
+    margin-bottom: 20px;
+}
+
+.right p,
+.right ul {
+    font-size: 1.2rem;
+    color: #0d044e;
+    text-shadow: 10px rgba(97, 255, 242, 0.497);
+    line-height: 1.6;
+}
+
+.right ul {
+    list-style-type: none;
+}
+
+.right ul li {
+    margin-bottom: 10px;
+}
+
+.right h3 {
+    font-size: 1.8rem;
+    margin-top: 20px;
+    color: #e5ffe5;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    color: #0d044e;
+    padding: 20px 0;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .full-page-section {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 15px;
+    }
+    
+    .about-container {
+        flex-direction: column;
+    }
+    
+    .left, .right {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .left img {
+        width: 70%;
+        max-width: 350px;
+    }
+    
+    .right h2 {
+        font-size: 2rem;
+    }
+    
+    .right h3 {
+        font-size: 1.5rem;
+    }
+    
+    .right p, .right ul li {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-container h1 {
+        font-size: 1.8rem;
+    }
+    
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .right h2 {
+        font-size: 1.8rem;
+    }
+    
+    .right h3 {
+        font-size: 1.2rem;
+    }
+    
+    .right p, .right ul li {
+        font-size: 0.9rem;
+    }
+    
+    .left img {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+/* Projects Section */
+#projects {
+    /* background-color: rgba(174, 172, 173, 0.306); */
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex; /* Align projects horizontally */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: space-between; /* Distribute space evenly */
+}
+
+.projects-container h2 {
+    font-size: 3rem;
+    color: #20040496;
+    margin-bottom: 30px;
+    width: 100%; /* Ensure heading spans full width */
+    text-align: center;
+}
+
+.project {
+    border-radius: 10px;
+    border: 2px solid black;
+    margin: 20px;
+    padding: 30px;
+    text-align: left;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: calc(50% - 40px); /* Two projects per row */
+    max-width: 500px; /* Limit the max width */
+}
+
+.project:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project h3 {
+    font-size: 2rem;
+    color: #e5ffe5;
+    margin-bottom: 15px;
+}
+
+.project p {
+    font-size: 1.2rem;
+    color: #0d044e;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project a {
+    font-size: 1.1rem;
+    color: #f0a500;
+    text-decoration: none;
+    border: 1px solid #f0a500;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.project a:hover {
+    background-color: #f0a500;
+    color: #fff;
+}
+
+/* Media Queries for Projects */
+@media (max-width: 768px) {
+    .projects-container h2 {
+        font-size: 2.5rem;
+    }
+
+    .project {
+        width: calc(50% - 40px); /* Two projects per row */
+        padding: 20px;
+    }
+
+    .project h3 {
+        font-size: 1.8rem;
+    }
+
+    .project p {
+        font-size: 1rem;
+    }
+
+    .project a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-container h2 {
+        font-size: 2rem;
+    }
+
+    .project {
+        width: 100%; /* Stack projects vertically on small screens */
+        padding: 15px;
+    }
+
+    .project h3 {
+        font-size: 1.6rem;
+    }
+
+    .project p {
+        font-size: 0.9rem;
+    }
+
+    .project a {
+        font-size: 0.9rem;
+    }
+}
+/* New Games Section */
+#games {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.games-container {
+   
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex; /* Align projects horizontally */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: space-between; /* Distribute space evenly */
+}
+
+.games-container h2 {
+    font-size: 3rem;
+    color: #20040496;
+    margin-bottom: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+.game {
+    border-radius: 10px;
+    border: 2px solid black;
+    margin: 20px;
+    padding: 30px;
+    text-align: left;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: calc(50% - 40px);
+    max-width: 500px;
+}
+
+.game:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.game h3 {
+    font-size: 2rem;
+    color: #e5ffe5;
+    margin-bottom: 15px;
+}
+
+.game p {
+    font-size: 1.2rem;
+    color: #0d044e;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.game a {
+    font-size: 1.1rem;
+    color: #f0a500;
+    text-decoration: none;
+    border: 1px solid #f0a500;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.game a:hover {
+    background-color: #f0a500;
+    color: #fff;
+}
+
+/* Media Queries for Games Section */
+@media (max-width: 768px) {
+    .games-container h2 {
+        font-size: 2.5rem;
+    }
+
+    .game {
+        width: calc(50% - 40px);
+        padding: 20px;
+    }
+
+    .game h3 {
+        font-size: 1.8rem;
+    }
+
+    .game p {
+        font-size: 1rem;
+    }
+
+    .game a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .games-container h2 {
+        font-size: 2rem;
+    }
+
+    .game {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .game h3 {
+        font-size: 1.6rem;
+    }
+
+    .game p {
+        font-size: 0.9rem;
+    }
+
+    .game a {
+        font-size: 0.9rem;
+    }
+}
+
+footer {
+    text-align: center;
+    background-color: rgba(174, 172, 173, 0.306); 
+    color: #0d044e;
+    padding: 20px 0;
+}
+
+
+#dynamic-text {
+    display: inline-block;
+    font-size: 24px;
+    font-family: 'Courier New', monospace;
+    border-right: 3px solid black;
+    padding-right: 5px;
+    white-space: normal;  /* Allow text to wrap to the next line */
+    word-wrap: break-word; /* Ensure words break when needed */
+    overflow: hidden;
+    width: 100%; /* Adjust width to be 100% of the container */
+    animation: typing 3s steps(40) 1s 1 normal both, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+@keyframes blink-caret {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: black; }
+}
+
+/* Social Media Section */
+#social-media {
+    padding: 50px 20px;
+    text-align: center;
+    /* background-color: #0d044e; Adjust background color as needed */
+    color: #fff;
+}
+
+#social-media h2 {
+    font-size: 3rem;
+    color: #e5ffe5;
+    margin-bottom: 30px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between icons */
+    margin-top: 20px;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Makes the icons circular */
+    /* background-color: #f0a500;  */
+    color: #fff; /* Default icon color */
+    text-align: center;
+    line-height: 50px; /* Align icon vertically */
+    font-size: 24px; /* Icon size */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    /* background-color: #ff6f61; Hover background colo */
+    transform: scale(1.2); /* Slight zoom on hover */
+}
+
+/* Add specific brand colors for each icon */
+.social-icons a.facebook {
+    background-color: #3b5998;
+}
+
+.social-icons a.facebook:hover {
+    background-color: #344e86;
+}
+#social-media .github {
+    font-size: 2rem; /* Adjusts the icon size */
+    color: #333; /* Default color for the icon */
+    margin: 0 10px; /* Adds space between icons */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+#social-media .github:hover {
+    color: #000; /* Color change on hover */
+    transform: scale(1.1); /* Scales up the icon slightly on hover */
+}
+
+
+.social-icons a.instagram {
+    background-color: #e4405f;
+}
+
+.social-icons a.instagram:hover {
+    background-color: #d73352;
+}
+
+.social-icons a.linkedin {
+    background-color: #0077b5;
+}
+
+.social-icons a.linkedin:hover {
+    background-color: #005983;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .social-icons {
+        gap: 15px; /* Reduce space between icons */
+    }
+
+    .social-icons a {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #social-media h2 {
+        font-size: 2rem;
+    }
+
+    .social-icons a {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 18px;
+    }
+}
+#cv {
+    text-align: center; /* Centers the link */
+    margin-top: 30px; /* Adds space above the section */
+}
+
+#cv a {
+    display: inline-block; /* Makes the link behave like a block element */
+    padding: 12px 24px; /* Adds padding around the text */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    font-size: 18px; /* Larger text */
+    text-decoration: none; /* Removes the underline from the link */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+#cv a:hover {
+    background-color: #45a049; /* Darker green when hovered */
+    transform: scale(1.05); /* Slightly increases the size of the button */
+}
+
+#cv a:focus {
+    outline: none; /* Removes the focus outline */
+    box-shadow: 0 0 5px #4CAF50; /* Adds a green glow when focused */
+}
